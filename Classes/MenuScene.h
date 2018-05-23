@@ -1,7 +1,7 @@
 //菜单场景
 #ifndef __MenuScene_H_
 #define __MenuScene_H_
-#define STRAT_GAME    1
+#define START_GAME    1
 #define INTRODUCTION  2
 #define QUIT_GAME     3
 
@@ -12,6 +12,7 @@
 #include "popupLayer/PopupLayer.h"
 #include"SplashScene.h"
 #include"MyUtility.h"
+#include"GameScene.h"//改写地方
 USING_NS_CC_EXT;
 USING_NS_CC;
 

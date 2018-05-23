@@ -23,15 +23,19 @@ bool PopupLayer::init()
 	setMenuButton(menu);
 	//添加触摸响应
 	auto listener = EventListenerTouchOneByOne::create();
+	listener->setSwallowTouches(true);
 	listener->onTouchBegan = [this](Touch * t,Event *e)
 	{
 		log("touch");
 		return true;
 	};
-	listener->setSwallowTouches(true);
+	listener->onTouchEnded = [this](Touch *t, Event *e)
+	{
+		log("touch end");
+	};
 	//屏蔽下层事件相应，达到模态效果  写作_eventDispatcher->addEventListenerWithSceneGraphPriority(listener,layer)将会屏蔽自身？？
-	_eventDispatcher->addEventListenerWithFixedPriority(listener, -1);
-	//_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, menu);
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
+	//_eventDispatcher->addEventListenerWithFixedPriority(listener, -1);
 	return true;
 }
 
@@ -101,6 +105,7 @@ void PopupLayer::buttonCallBack(CCObject *pSender)
 
 void PopupLayer::onEnter()
 {
+	Layer::onEnter();
 	Size winSize = Director::getInstance()->getWinSize();
 	//根据对话框大小设置九宫格背景图片
 	Scale9Sprite *background = getSprite9BackGround();

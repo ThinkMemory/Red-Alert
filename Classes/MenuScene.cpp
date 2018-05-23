@@ -49,6 +49,7 @@ void MenuScene::addBackgroundSprite()
 //添加Menu
 void MenuScene::addMenuSprites()
 {
+	
 	//1 start game
 	//设置菜单的正常图片
 	Scale9Sprite * NormalButton1 = Scale9Sprite::create(NORMAL_MENU);
@@ -65,7 +66,7 @@ void MenuScene::addMenuSprites()
 	//设置点击的回调方法
 	startGameBtn->addTargetWithActionForControlEvents(this, cccontrol_selector(MenuScene::menuTouchDown), Control::EventType::TOUCH_DOWN);
 	//设置菜单按钮的Tag
-	startGameBtn->setTag(STRAT_GAME);
+	startGameBtn->setTag(START_GAME);
 	//添加Menu到场景
 	addChild(startGameBtn);
 
@@ -117,13 +118,19 @@ void MenuScene::menuTouchDown(Object *pSender, Control::EventType event)
 	int tag = button->getTag();
 	switch (tag)
 	{
-		case STRAT_GAME:    
+		case START_GAME:    
 		{
+			//进入GameScene，并且伴随按行分割动画
+			Scene *sc = Scene::create();
+			auto layer = GameScene::create();
+			sc->addChild(layer);
+			auto reScene = TransitionSplitRows::create(1.0f, sc);
+			Director::getInstance()->replaceScene(reScene);
 			break;
 		}
 		case INTRODUCTION:
 		{
-			scheduleOnce(schedule_selector(MenuScene::jumpToIntroduction), 0.5);
+			scheduleOnce(schedule_selector(MenuScene::jumpToIntroduction), 2.0f);
 			Director::getInstance()->replaceScene(SplashScene::createScene());
 			break;
 		}
@@ -139,7 +146,7 @@ void MenuScene::menuTouchDown(Object *pSender, Control::EventType event)
 //跳转到IntroScene
 void MenuScene::jumpToIntroduction(float dt)
 {
-		
+
 }
 
 void MenuScene::popupQuitLayer()
