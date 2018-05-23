@@ -1,7 +1,7 @@
 //游戏界面
 
-#ifndef __GAMESCENE_H_
-#define __GAMESCENE_H_
+#ifndef __GameScene_H_
+#define __GameScene_H_
 #include"cocos2d.h"
 #include<iostream>
 #include"MyUtility.h"
@@ -19,8 +19,8 @@ public:
 
 private:
 	void backToMenuScene(Ref *pSender);//返回MenuScene
-
+	int Money;//金钱
 };
 
 
-#endif // !__GAMESCENE_H_
+#endif // !__GameScene_H_

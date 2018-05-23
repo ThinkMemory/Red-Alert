@@ -130,7 +130,7 @@ void MenuScene::menuTouchDown(Object *pSender, Control::EventType event)
 		}
 		case INTRODUCTION:
 		{
-			scheduleOnce(schedule_selector(MenuScene::jumpToIntroduction), 2.0f);
+			scheduleOnce(schedule_selector(MenuScene::jumpToIntroduction), 0.5);
 			Director::getInstance()->replaceScene(SplashScene::createScene());
 			break;
 		}

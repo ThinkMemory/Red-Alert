@@ -17,7 +17,7 @@ bool SplashScene::init()
 	scheduleOnce(schedule_selector(SplashScene::startMoveSprite), 1);
 
 	//创建跳过动画进入MenuScene的菜单
-	auto jumpLable = LabelTTF::create(MyUtility::gbk_2_utf8("跳过"), "华文行楷", 10);
+	auto jumpLable = LabelTTF::create(MyUtility::gbk_2_utf8("跳过"), "华文行楷", 15);
 	auto jumpMenu = MenuItemLabel::create(jumpLable, CC_CALLBACK_1(SplashScene::jumpToMenuScen, this));
 	float jump_x = jumpMenu->getContentSize().width;
 	float jump_y = jumpMenu->getContentSize().height;

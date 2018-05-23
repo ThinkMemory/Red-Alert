@@ -14,7 +14,8 @@
 #define DIALOG_BG "popuplayer/dialogbackground.png"
 #define DIALOG_BUTTON "popuplayer/dialogbutton.png"
 #define DIALOG_BUTTON2 "popuplayer/dialogbutton2.png"
-
+//½¨ÖþÎï
+#define BASE "base.png"
 
 
 #endif 
