@@ -1,9 +1,7 @@
 //菜单场景
 #ifndef __MenuScene_H_
 #define __MenuScene_H_
-#define START_GAME    1
-#define INTRODUCTION  2
-#define QUIT_GAME     3
+
 
 #include"cocos2d.h"
 #include<iostream>
@@ -12,7 +10,7 @@
 #include"popupLayer/PopupLayer.h"
 #include"SplashScene.h"
 #include"MyUtility.h"
-#include"GameScene.h"//改写地方
+#include"GameScene.h"
 USING_NS_CC_EXT;
 USING_NS_CC;
 

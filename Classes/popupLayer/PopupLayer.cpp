@@ -24,12 +24,12 @@ bool PopupLayer::init()
 	//Ìí¼Ó´¥ÃþÏìÓ¦
 	auto listener = EventListenerTouchOneByOne::create();
 	listener->setSwallowTouches(true);
-	listener->onTouchBegan = [this](Touch * t,Event *e)
+	listener->onTouchBegan = [](Touch * t,Event *e)
 	{
 		log("touch");
 		return true;
 	};
-	listener->onTouchEnded = [this](Touch *t, Event *e)
+	listener->onTouchEnded = [](Touch *t, Event *e)
 	{
 		log("touch end");
 	};
