@@ -1,7 +1,7 @@
 #include"Buildings.h"
 
 EventListenerTouchOneByOne * Buildings::touchBuildingListener;
-EventDispatcher * Buildings::eventDispatcher = Director::getInstance()->getEventDispatcher();
+EventDispatcher * Buildings::eventDispatcher;
 
 Buildings::Buildings(BuildingTypes buildingType)
 {
@@ -65,7 +65,7 @@ Buildings * Buildings::creatWithBuildingTypes(BuildingTypes buildingType)
 			auto target = static_cast<Buildings *>(event->getCurrentTarget());
 			target->setifMove(CANNOT_MOVE);
 		};
-		
+		eventDispatcher = Director::getInstance()->getEventDispatcher();
 		eventDispatcher->addEventListenerWithSceneGraphPriority(touchBuildingListener, building);
 
 		return building;
