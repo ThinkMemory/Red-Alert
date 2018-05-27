@@ -23,17 +23,23 @@
 //建筑物
 #define BASE "base.png"
 
-#define CAN_MOVE 1
-#define CANNOT_MOVE 0
+#define CAN_MOVE true
+#define CANNOT_MOVE false
 
+#define BASE_HEALTH 20000
 #define CASERN_PRICE 4000
 #define CASERN_HEALTH 10000
 
 typedef enum
 {
-	CASERN = 1
+	START_BASE = 1,
+	CASERN
 
-}BuildingType;
+}BuildingTypes;
 
 
-#endif !__Resources_H_
+//游戏界面节点
+#define GameSceneNodeTagBuilding 512
+#define GameSceneNodeTagMoney 1024
+
+#endif // !__Resources_H_

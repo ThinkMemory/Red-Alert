@@ -2,6 +2,7 @@
 #define __Buildings_H_
 #include"cocos2d.h"
 #include<iostream>
+#include"cocos2d.h"
 #include"ConstUtil.h"
 
 USING_NS_CC;
@@ -12,27 +13,28 @@ USING_NS_CC;
 ////////////////////////////////////
 
 
-class Buildings :public Layer
+class Buildings :public Sprite
 {
 public:
-	Buildings(int buildingType);        //通过枚举类来判段需产生什么建筑物
+	Buildings(BuildingTypes buildingType);        //通过枚举类来判段需产生什么建筑物
 
-	//获得建筑物,将建筑物精灵封装在这个类内，方便通过类的成员函数来控制这个精灵
-	Sprite *getbuilding();
+	static Buildings *creatWithBuildingTypes(BuildingTypes buildingType);
 
 private:
-	Sprite *bldspt;
-	const char *buildingName;
-	int Price;
-	int Health;
+	CC_SYNTHESIZE(BuildingTypes, buildingtype, BuildingType);
+	CC_SYNTHESIZE(int, health, currentHealth);
+	CC_SYNTHESIZE(int, price, Price);
+	CC_SYNTHESIZE(bool, if_move, ifMove);
 
-
+	//建筑物监听器
+	static EventListenerTouchOneByOne *touchBuildingListener;
+	static EventDispatcher *eventDispatcher;
 };
 
 
 
 
-#endif // !__Buildings_H_
+#endif // 1__Buildings_H_
 
 
 
